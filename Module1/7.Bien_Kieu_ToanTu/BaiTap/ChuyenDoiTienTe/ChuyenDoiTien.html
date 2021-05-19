@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convert Currency</title>
+    <style>
+        button{
+            margin-left: 0.5%;
+            margin-top: 0.5%;
+        }
+        input{
+            margin-left: 0.5%;
+        }
+        th,select{
+            width: 10em;
+        }
+    </style>
+</head>
+<body>
+<h2>Convert Currency</h2>
+<form>
+    <table>
+        <tr>
+            <th>Amount
+                <input type="text" id="Amount">
+            </th>
+            <th>From Currency<br>
+                <select id="FromCurrency">
+                    <option>VND</option>
+                    <option>USD</option>
+                </select>
+            </th>
+            <th>To Currency<br>
+                <select id="ToCurrency">
+                    <option>VND</option>
+                    <option>USD</option>
+                </select>
+            </th>
+        </tr>
+    </table>
+</form>
+<button onclick="Convert()">Convert</button>
+<br>
+<br>
+<b id="result"></b>
+<script>
+    function Convert() {
+    var amount=parseInt(document.getElementById("Amount").value);
+    var fromCurrency=document.getElementById("FromCurrency").value;
+    var toCurrency=document.getElementById("ToCurrency").value;
+    var converAmount;
+    const rate=23000;
+        if(fromCurrency=="USD") {
+            if(toCurrency=="USD") {
+                converAmount=amount
+            }
+            else {
+                converAmount=amount*rate
+            }
+
+        }
+
+        else {
+            if(toCurrency=="VND"){
+                converAmount=amount
+            }
+            else {
+                converAmount=amount/rate
+            }
+        }
+        document.getElementById("result").innerHTML="<b>Result is: </b>"+converAmount
+    }
+</script>
+</body>
+</html>

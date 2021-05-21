@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<script>
+    var id=prompt("Nhập UserName:")
+    if(id ==null||id==""){
+        alert("Canceled")
+    }
+    else if(id=="Admin") {
+        var pass=prompt("Vui lòng nhập Password: ")
+        if(pass=="TheMaster") {
+                alert("Welcome")
+            }
+            else if(pass==null || pass="") {
+                    alert("Canceled")
+                }
+                alert("Wrong Password")
+
+    }
+    else {
+        alert("I don’t know you")
+    }
+</script>
+</body>
+</html>

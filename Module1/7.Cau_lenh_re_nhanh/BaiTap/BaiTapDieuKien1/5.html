@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xếp hạng học sinh</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="TestKT">Điểm kiểm tra
+        <br>
+        <input type="text" id="MidtermTest">Kiểm tra giữa kì
+        <br>
+        <input type="text" id="FinalTest">Kiểm tra cuối kì
+        <br>
+    </form>
+    <button onclick="CheckRank()">Xếp hạng</button>
+    <script>
+        function CheckRank(){
+            var TestKT=Number(document.getElementById("TestKT").value);
+            var Midterm=Number(document.getElementById("MidtermTest").value);
+            var Final=Number(document.getElementById("FinalTest").value);
+            var averageMark=(TestKT+(Midterm*2)+(Final*3))/6;
+            var rank;
+            const lestMark=4;
+            if(TestKT>4&&Midterm>4&&Final>4){
+                if(averageMark>=8){
+                    rank="Học sinh giỏi";
+                }
+                else if(averageMark>=7){
+                    rank="Học sinh khá";
+                }
+                else{
+                    rank="Học sinh trung bình";
+                }
+            }
+            else{
+                rank="Học sinh yếu";
+            }
+            document.write(rank)
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinh số ngày</title>
+</head>
+<body>
+    <form>
+        <input type="text" id='month'>
+    </form>
+    <button onclick="Getday()">Tính số ngày</button>
+    <script>
+        function Getday(){
+        var month=parseInt(document.getElementById("month").value)
+        var day=0;
+        switch(month){
+            case 2:
+                day=28;
+            break;
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                day=31;
+                break
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                day=30;
+                break;
+            default:
+                alert("Số tháng nhập bị sai");
+        }
+        document.write(day)
+    }
+    </script>
+</body>
+</html>

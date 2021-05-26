@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập rẽ nhánh 1</title>
+</head>
+<body>
+    <script>
+        var a=Number(prompt("Nhập số a: "));
+        var b=Number(prompt("Nhập số b: "))
+        if(b!=0 && b!=1&&a!=''&&b!=''){
+        var value=a%b==0;
+        if(value){
+            alert(a +" chia hết cho " + b);
+        }
+        else{
+            alert(a + " không chia hết cho "+b)
+        }
+      
+    }
+      else alert("phép tính không chính xác")
+    </script>
+</body>
+</html>

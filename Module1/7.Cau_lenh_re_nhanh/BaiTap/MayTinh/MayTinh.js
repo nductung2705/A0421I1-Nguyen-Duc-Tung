@@ -1,10 +1,10 @@
-function Input(temp){
+function input(temp){
    document.getElementById("result").value+=temp
 }
 
-function Tinh(){
+function calculate(){
     document.getElementById("result").value =eval(document.getElementById("result").value)
 }
-function Clear(){
+function clear(){
     document.getElementById("result").value=''
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra cạnh của tam giác</title>
+</head>
+<body>
+    <script>
+        var i=0
+        do{
+            var firstSide=Number(prompt("Nhập cạnh đầu tiên"))
+            var secondSide=Number(prompt("Nhập cạnh thứ 2:"))
+            var thirdSide=Number(prompt("Nhập cạnh thứ 3: "))
+            if(i>0){
+                alert("Nhập sai thông tin chiều dài")
+            }
+            i++;
+        }while (isNaN(firstSide)||firstSide<=0||isNaN(secondSide)||isNaN(thirdSide)||secondSide<=0||thirdSide<=0)
+        if((firstSide+secondSide>thirdSide)&&(firstSide+thirdSide>secondSide)&&(secondSide+thirdSide>firstSide)){
+            alert("3 cạnh vừa nhập là cạnh tam giác")
+        }
+        else{
+            alert("3 cạnh vừa rồi không phải cạnh tam giác")
+        }
+
+    </script>
+</body>
+</html>

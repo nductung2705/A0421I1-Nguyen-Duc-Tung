@@ -8,15 +8,15 @@
 </head>
 <body>
     <script>
-        var a=Number(prompt("Nhập số a: "));
-        var b=Number(prompt("Nhập số b: "))
-        if(b!=0 && b!=1&&a!=''&&b!=''){
-        var value=a%b==0;
-        if(value){
-            alert(a +" chia hết cho " + b);
+        var number1=Number(prompt("Nhập số a: "));
+        var number2=Number(prompt("Nhập số b: "))
+        if(number2!=0 && number2!=1&&number2!=''&&number2!=''){
+        var flag=number1%number2==0;
+        if(flag){
+            alert(number1 +" chia hết cho " + number2);
         }
         else{
-            alert(a + " không chia hết cho "+b)
+            alert(number1 + " không chia hết cho "+number2)
         }
       
     }

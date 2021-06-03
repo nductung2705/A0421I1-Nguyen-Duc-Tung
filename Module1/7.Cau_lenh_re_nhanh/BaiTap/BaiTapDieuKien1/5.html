@@ -8,23 +8,20 @@
 </head>
 <body>
     <form>
-        <input type="text" id="TestKT">Điểm kiểm tra
+        <label>Kiểm tra giữa kì<input type="text" id="midtermTest"></label>
         <br>
-        <input type="text" id="MidtermTest">Kiểm tra giữa kì
-        <br>
-        <input type="text" id="FinalTest">Kiểm tra cuối kì
+        <label>Kiểm tra cuối kì<input type="text" id="finalTest"></label>
         <br>
     </form>
-    <button onclick="CheckRank()">Xếp hạng</button>
+    <button onclick="checkRank()">Xếp hạng</button>
     <script>
-        function CheckRank(){
-            var TestKT=Number(document.getElementById("TestKT").value);
-            var Midterm=Number(document.getElementById("MidtermTest").value);
-            var Final=Number(document.getElementById("FinalTest").value);
-            var averageMark=(TestKT+(Midterm*2)+(Final*3))/6;
+        function checkRank(){
+            var midtermTest=Number(document.getElementById("midtermTest").value);
+            var finalTest=Number(document.getElementById("finalTest").value);
+            var averageMark=(midtermTest+(finalTest*2))/3
             var rank;
             const lestMark=4;
-            if(TestKT>4&&Midterm>4&&Final>4){
+            if(midtermTest>lestMark&&finalTest>lestMark){
                 if(averageMark>=8){
                     rank="Học sinh giỏi";
                 }

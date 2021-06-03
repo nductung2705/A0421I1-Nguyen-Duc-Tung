@@ -12,10 +12,11 @@
         var count=0;
         var i=1
         document.write("Danh sách "+n+" số nguyên tố đầu tiên: <br>");
+        var temp="<ol>"
         while(count<n){
             i++;
             var j=2
-            while(j<i){
+            while(j<(Math.sqrt(i))){
                 var test=i%j
                 if(test==0){
                     break;
@@ -26,9 +27,11 @@
             }
             if(test!==0){
                 count++;
-                document.write(count +", Số: "+i+"<br>");
+                temp=temp+"<li>"+i+"</li>";
             }
         }
+        temp=temp+"</ol>";
+        document.write(temp)
     </script>
 </body>
 </html>

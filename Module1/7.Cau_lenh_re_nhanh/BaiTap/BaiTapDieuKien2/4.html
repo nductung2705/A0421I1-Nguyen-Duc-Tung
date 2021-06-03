@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diện tích hình chữ nhật</title>
+    
+</head>
+<body>
+   <script>
+    var length=parseInt(prompt("Nhập chiều dài: "));
+    var width=parseInt(prompt("Nhập chiều rộng: "));
+    if(length>0 && width>0)
+    {
+        var S=length*width;
+        alert("Diện tích hình chữ nhật là " +S)
+    }
+    else
+    {  if(length<=0)
+        alert("Độ dài phải là 1 số dương");
+        if(width<=0)
+        alert("Độ rộng phải là 1 số dương");
+    }
+       </script>
+</body>
+</html>

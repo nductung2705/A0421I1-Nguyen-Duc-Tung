@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phương trình bậc 2</title>
+    <style>
+        input{
+            width: 3em;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="number" id="a">x<sup>2</sup>+
+        <input type="number" id="b">x+
+        <input type="number" id="c" oninput="PTBac2()">=0
+    </form>
+    <p id="result"></p>
+    <script>
+        function PTBac2(){
+        let a=Number(document.getElementById("a").value);
+        let b=Number(document.getElementById("b").value);
+        let c=Number(document.getElementById("c").value);
+        if(a===0){
+                alert("Hệ số a phải khác 0")
+                document.getElementById("a").value='';
+                document.getElementById("b").value='';
+                document.getElementById("c").value='';
+                result="";
+            }
+            else{
+                let delta=Math.pow(b,2)-(4*a*c)
+        
+                var result=''
+                if(delta<0){
+                    result=result+"Vô nghiệm"
+                    }
+                else if(delta==0){
+                    result=result+'Có 1 nghiệm'+(-1*b/2*a)
+                }
+                else{
+                    let x1=(-1*b+Math.sqrt(delta))/2*a
+                    let x2=((-1*b-Math.sqrt(delta))/2*a)
+                    result=result+ "Phương trình có 2 nghiệm: "+x1 +" và "+x2;
+                }
+
+            }
+        document.getElementById("result").innerHTML=result;
+        }
+    </script>
+</body>
+</html>

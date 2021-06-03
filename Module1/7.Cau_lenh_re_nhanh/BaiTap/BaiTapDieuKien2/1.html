@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ConvertTemperature</title>
+        <script>
+            function convertTemperature() {
+    var inputAmount=parseInt(document.getElementById("input").value);
+    var inputUnit=document.getElementById("inputUnit").value;
+    var outputUnit=document.getElementById("outputUnit").value;
+    var convertTemp;
+    if(inputUnit=="C")
+    {
+        if(outputUnit=="C")
+            convertTemp=inputAmount
+        else  convertTemp=(inputAmount/5*9)+32
+    }
+    else
+    {
+        if(outputUnit=="F")
+            convertTemp=inputAmount
+        else convertTemp=(inputAmount-32)/9*5
+    }
+    document.getElementById("Temp").innerHTML="Result: " +convertTemp
+}
+       </script>
+</head>
+<body>
+    <form>
+        <h3>Chuyển đổi nhiệt độ</h3>
+        <table>
+            <tr>
+                <td>Amount</td>
+                <td><input type="text" id="input"></td>
+            </tr>
+            <tr>
+                <td>From Unit</td>
+                <td>
+                    <select id="inputUnit">
+                        <option value="C">Độ C</option>
+                        <option value="F">Độ F</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>To Unit</td>
+                <td>
+                    <select id="outputUnit">
+                        <option value="C">Độ C</option>
+                        <option value="F">Độ F</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <button onclick="convertTemperature()">Convert</button>
+    <form>
+        <label id="Temp"></label>
+    </form>
+</body>
+</html>

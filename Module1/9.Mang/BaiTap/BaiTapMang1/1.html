@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=new Array(10);
+        for(i=0;i<arr.length;i++){
+            var value=parseInt(prompt("Nhập giá trị phần tử"))
+            arr[i]=value
+        }
+        var count=0
+        result="";
+        for(j=0;j<arr.length;j++){
+            if(arr[j]>=10){
+                count++;
+                result=result+arr[j]+","
+            }
+        }
+        document.write("Có "+count+"phan tu lon hon 10: <br>"+result)
+    </script>
+</body>
+</html>

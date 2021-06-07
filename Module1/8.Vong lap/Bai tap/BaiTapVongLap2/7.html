@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        do{
+            var lenght=parseInt(prompt("Nhập chiều dài của hình chữ nhật"))
+        }while (isNaN(lenght)||lenght<=0)
+        do{
+            var height=parseInt(prompt("Nhập chiều rộng của hình chữ nhật"))
+        }while (isNaN(height)||height<=0)
+    for(var i=1;i<=height;i++)
+    {
+       for(var j=1;j<=lenght;j++){
+           if(j==lenght){
+           document.write("*<br>");
+           continue;
+           }
+           else if(i==1||j==1||i==height){
+               document.write("*")
+               continue;
+           }
+           else{
+               document.write("&ensp;")
+           }
+       }
+    }
+    
+    </script>
+
+</body>
+</html>

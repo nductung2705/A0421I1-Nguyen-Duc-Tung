@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        do{
+            var length=parseInt(prompt("Nhập số lượng phan tu"))
+        }while(isNaN(length)||length<=0)
+        var arr=new Array(length);
+        for(i=0;i<arr.length;i++){
+            var value=parseInt(prompt("Nhập giá trị phần tử"))
+            arr[i]=value
+        }
+        var temp=0
+        var last=length-1
+        for(j=0;j<arr.length/2;j++){
+            temp=arr[j];
+            arr[j]=arr[last]
+            arr[last]=temp
+            last--;
+        }
+        document.write(arr.join())
+    </script>
+</body>
+</html>

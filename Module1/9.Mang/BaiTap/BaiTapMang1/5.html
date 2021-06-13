@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        do{
+            var length=parseInt(prompt("Nhập số lượng phan tu"))
+        }while(isNaN(length)||length<=0)
+        var arr=new Array(length);
+        for(i=0;i<arr.length;i++){
+            var value=parseInt(prompt("Nhập giá trị phần tử"))
+            arr[i]=value
+        }
+        var count=0;
+        var result=""
+        for(j=0;j<arr.length;j++){
+            if(arr[j]<0){
+                result=result+arr[j]+", "
+                count++
+            }
+        }
+        document.write("Có "+count+" số nguyên âm: <br>" +result)
+    </script>
+</body>
+</html>

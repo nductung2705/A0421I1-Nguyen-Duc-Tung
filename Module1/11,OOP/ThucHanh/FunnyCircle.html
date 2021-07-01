@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+    <script>
+        class Circle{
+            constructor(x,y,radius){
+                this.x=x;
+                this.y=y;
+                this.radius=radius;
+            }
+            setX(x){
+                this.x=x;
+            }
+            setY(y){
+                this.y=y;
+            }
+            setRadius(radius){
+                this.radius=radius;
+            }
+            getX(){
+                return this.x
+            }
+            getY(){
+                return this.y
+            }
+            getRadius(){
+                return this.radius
+            }
+           
+        }
+         class a extends Circle{};
+        function makeCorlor(){
+            var red=Math.floor(Math.random()*255)
+            var green=Math.floor(Math.random()*255)
+            var blue=Math.floor(Math.random()*255)
+            return "rgb(" +red+","+green+","+blue+")"
+        }
+        function CreateCircle(color){
+            var radius=Math.floor(Math.random()*100);
+            var cxt=document.getElementById("myCanvas").getContext("2d");
+            var x=Math.random()*innerHeight;
+            var y=Math.random()*innerWidth;
+            var circle= new Circle(x,y,radius);
+            cxt.arc(circle.x,circle.y,circle.radius,0,2*Math.PI,);
+            cxt.fillStyle=color;
+            cxt.fill();
+        }
+        for(var i=0;i<=1;i++){
+        var color=makeCorlor();
+        CreateCircle(color);
+        }
+    </script>
+    
+</body>
+</html>

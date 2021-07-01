@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="display"></div>
+    <script>
+        class Img{
+            constructor(source,top,left,size){
+                this.source=source;
+                this.top=top;
+                this.left=left;
+                this.size=size;
+            }
+            getElement(){
+                return '<img width="'+ this.size + '"' +
+                ' height="'+ this.size + '"' +
+                ' src="' + this.source +'"' +
+                ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+            }
+            
+            moveRight(){
+                this.left+=100;
+                console.log("MoveLeft"+this.left);
+
+            }
+        showDisplay(){
+            if(this.left< window.innerWidth-this.size){
+                this.moveRight();
+            }
+            document.getElementById("display").innerHTML=this.getElement();
+            setTimeout(showDisplay, 500)
+            }
+        }
+        var test = new Img('https://vnw-img-cdn.popsww.com/api/v2/containers/file2/cms_topic/untitled_1-c62be4464e28-1606807875675-REFRLWL6.png',0,0,300)
+        test.showDisplay();
+    </script>
+</body>
+</html>

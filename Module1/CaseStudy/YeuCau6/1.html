@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        homePage();
+        var arrTicket=[]
+        class Ticket{
+            constructor(number1,number2,number3,number4,number5,number6){
+                this.number1=number1;
+                this.number2=number2;
+                this.number3=number3;
+                this.number4=number4;
+                this.number5=number5;
+                this.number6=number6;
+            }
+            getNumberInTicket(){
+                var arr=[];
+                arr.push(this.number1);
+                arr.push(this.number2);
+                arr.push(this.number3);
+                arr.push(this.number4);
+                arr.push(this.number5);
+                arr.push(this.number6);
+                return arr;
+            }
+        }
+        function homePage(){
+            document.body.innerText="";
+            let scout="<div><h2>Chơi lớn trúng lớn</h2><div>";
+            scout+="<button onclick='buyTicket()''>Mua vé số tự chọn</button>";
+            scout +="<button onclick='buyRandom()' style='margin-left: 10px'>Mua vé số ngẫu nhiên</button>";
+            document.write(scout);
+        }
+        function display(){
+            document.body.innerText="";
+            let scout="";
+
+            scout+="<table style='border-spacing: 0px; width: 50%; margin-left: auto; margin-right: auto;text-align: center;'>";
+            for(let i=0;i<arrTicket.length;i++){
+                scout+='<tr>'
+                scout+="<td style='border: solid 1px black'>Vé số "+(i+1)+"<td>"
+                scout+="<td style='border: solid 1px black;width: 100px'>"+arrTicket[i].number1+"</td>";
+                scout+="<td style='border: solid 1px black;width: 100px'>"+arrTicket[i].number2+"</td>";
+                scout+="<td style='border: solid 1px black;width: 100px'>"+arrTicket[i].number3+"</td>";
+                scout+="<td style='border: solid 1px black;width: 100px'>"+arrTicket[i].number4+"</td>";
+                scout+="<td style='border: solid 1px black;width: 100px'>"+arrTicket[i].number5+"</td>";
+                scout+="<td style='border: solid 1px black;width: 100px'>"+arrTicket[i].number6+"</td>";
+                scout+='</tr>'
+            }
+            scout+="</table>"+"<br>";
+            scout+="<div style='width: 100%; margin-left: auto; margin-right: auto;text-align: center'>";
+            scout+="<button onclick='buyTicket()'>Thêm vé tự chọn</button>";
+            scout +="<button style='margin-left: 20px' onclick='buyRandom()'>Thêm vé ngẫu nhiên</button>";
+            scout +="<button style='margin-left: 20px' onclick='checkResult()'>Kiểm tra kết quả</button>"+"</div>";
+            document.write(scout);
+        }
+        function buyTicket(){
+            if(arrTicket.length<4){
+            document.body.innerHTML="";
+            let result="<form>";
+                result+="Số 1: <input type='number' id='number1'>"+"<br>"+"<br>";
+                result+="Số 2: <input type='number' id='number2'>"+"<br>"+"<br>";
+                result+="Số 3: <input type='number' id='number3'>"+"<br>"+"<br>";
+                result+="Số 4: <input type='number' id='number4'>"+"<br>"+"<br>";
+                result+="Số 5: <input type='number' id='number5'>"+"<br>"+"<br>";
+                result+="Số 6: <input type='number' id='number6'>"+"<br>"+"<br>";
+                result+="</form>";
+                result +='<button onclick="complete()">Xác nhận</button>';
+                document.write(result);}
+                else{
+                    alert("Chi mua duoc 4 ve thoi ban oi!!!")
+                }
+        }
+        function buyRandom(){
+            if(arrTicket.length<4){
+            let number1=Math.floor(Math.random()*99);
+            let number2=Math.floor(Math.random()*99);
+            let number3=Math.floor(Math.random()*99);
+            let number4=Math.floor(Math.random()*99);
+            let number5=Math.floor(Math.random()*99);
+            let number6=Math.floor(Math.random()*99);
+            var ticket=new Ticket(number1,number2,number3,number4,number5,number6);
+            arrTicket.push(ticket);
+            document.body.innerHTML="";
+            display();
+            }
+            else{
+                    alert("Chi mua duoc 4 ve thoi ban oi!!!")
+                }
+
+        }
+        function complete(){
+            let number1=parseInt(document.getElementById("number1").value);
+            let number2=parseInt(document.getElementById("number2").value);
+            let number3=parseInt(document.getElementById("number3").value);
+            let number4=parseInt(document.getElementById("number4").value);
+            let number5=parseInt(document.getElementById("number5").value);
+            let number6=parseInt(document.getElementById("number6").value);
+            if(number1>=1&&number1<=99&&number2>=1&&number2<=99&&number3>=1&&number3<=99&&number4>=1&&number4<=99&&number5>=1&&number5<=99&&number6>=1&&number6<=99){
+                var ticket=new Ticket(number1,number2,number3,number4,number5,number6);
+                arrTicket.push(ticket);
+                document.body.innerHTML="";
+                display();
+
+            }
+            else{
+                alert("Vui long chon so tu 1 den 99")
+                buyTicket();
+            }
+        }
+        function checkResult(){
+            let result=''
+            let number1=Math.floor(Math.random()*99);
+            let number2=Math.floor(Math.random()*99);
+            let number3=Math.floor(Math.random()*99);
+            let number4=Math.floor(Math.random()*99);
+            let number5=Math.floor(Math.random()*99);
+            let number6=Math.floor(Math.random()*99);
+            var bingoNumber=new Ticket(number1,number2,number3,number4,number5,number6);
+            let victory=0;
+            for(let i=0;i<arrTicket.length;i++){
+                if(arrTicket[i].number4==bingoNumber.number4&&arrTicket[i].number5==bingoNumber.number5&&arrTicket[i].number6==bingoNumber.number6){
+                    if(arrTicket[i].number2==bingoNumber.number2&&arrTicket[i].number2==bingoNumber.number2){
+                        if(arrTicket[i].number1==bingoNumber.number1){
+                            victory=1;
+                        }
+                        else{
+                            victory=2;
+                        }
+                    }
+                    else{
+                        victory=3;                      
+                    }
+                }
+                else{
+                    victory=0;
+                }
+            }
+            switch(victory){
+                case 1: {
+                    result+='<img src="https://nld.mediacdn.vn/2020/10/20/photo-1-1603167799122480730268.jpg" style="width: 100%; margin-left: auto; margin-right: auto;text-align: center">'
+                }
+                case 2:{
+                     result+='<img src="https://png.pngtree.com/element_our/png/20180918/creative-materials-design-for-second-trophies-png_99091.jpg" style="width: 100%; margin-left: auto; margin-right: auto;text-align: center">'
+                }
+                case 3:{
+                    result+='<img src="https://f2.hcm.edu.vn/UploadImages/thcsthanhda/18-19/44434925_1101676863334207_4317435648609878016_n.jpg?w=1000" style="width: 100%; margin-left: auto; margin-right: auto;text-align: center">'
+                }
+                default: {
+                    result+='<img src="https://1.bp.blogspot.com/-8MztWuh1ddM/YGIV41zTf2I/AAAAAAAACyA/RLPTOEZAIBgmD45oFMtMqf1AFGtAZ1XpACLcBGAsYHQ/s320/chucbanmayman.png" style="width: 100%; margin-left: auto; margin-right: auto;text-align: center">'
+                }
+            }
+            alert("Giải đặc biệt là: "+bingoNumber.getNumberInTicket().toString())
+            document.write(result)
+
+        }
+        
+    </script>
+</body>
+</html>

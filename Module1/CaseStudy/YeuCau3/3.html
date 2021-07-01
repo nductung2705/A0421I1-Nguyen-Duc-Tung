@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arrayA=[3,8,10];
+        let arrayB=[6,9,2];
+        let max=arrayA[0]/arrayB[0]
+        let locations=0
+        if(arrayA.length!=arrayB.length){
+            alert("2 mảng phải bằng nhau")
+        }
+        else{
+        for(var i=1;i<arrayA.length;i++){
+            if(max<=arrayA[i]/arrayB[i]){
+                max=arrayA[i]/arrayB[i];
+                locations=i
+            }
+        }
+    }
+        alert("Phân số lớn nhất là: "+arrayA[locations]+"/"+arrayB[locations]+"\n ở vị trí: "+locations)
+    </script>
+</body>
+</html>

@@ -20,7 +20,8 @@
             alert("Hinh tron co ban kinh la: "+this.radius+"\n Dien tich la: "+this.getArea())
         }
     }
-    var circle=new Circle(3);
+    var radius= parseFloat(prompt("Nhap ban kinh hinh tron"))
+    var circle=new Circle(radius);
     circle.getArea();
     circle.displayCircle();
 

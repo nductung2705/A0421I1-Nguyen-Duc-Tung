@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="setLamp(true)">Bat den</button>
+    <button onclick="setLamp(false)">Tat Den</button>
+    <script>
+         class Lamp{
+             constructor(status){
+                 this.status=status;
+             }
+             getStatus(){
+                 return this.status;
+             }
+         }
+         class SwitchButton{
+             constructor(lampName,status){
+                 this.lampName=lampName;
+                 this.status=status
+             }
+             turnOnLamp(){
+                this.status=true
+                this.lampName.status=true
+             }
+             turnOffLamp(){
+                 this.status=false;
+                 this.lampName.status=false;
+             }
+         }
+        var lamp=new Lamp(false);
+        var button=new SwitchButton(lamp,false);
+         function setLamp(stt){
+             if(stt==true){
+                 button.turnOnLamp();
+                 console.log(lamp.status)
+                 console.log(button.status)
+                 display(stt)
+             }
+             else {button.turnOffLamp();
+                console.log(lamp.status)
+                console.log(button.status)
+                display(stt)
+            }
+         }
+         function display(stt){
+             if(stt==true)
+             var scout='<img src="https://image.shutterstock.com/image-vector/hand-turns-on-light-bulb-260nw-1027985860.jpg" style="size: 40%;margin-left: 40%;">';
+             else scout='<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnFTuwbapxnoSSExAT9z4ezjLPD1Z3nfeBSA&usqp=CAU" style="size: 40%;margin-left: 40%;">';
+             document.write(scout)
+
+         }
+    </script>
+    
+</body>
+</html>

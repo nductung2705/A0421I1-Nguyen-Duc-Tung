@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Phone{
+            constructor(battery,status,draft,inbox,sent){
+                this.battery=battery;
+                this.status=status;
+                this.draft=draft;
+                this.inbox=inbox;
+                this.sent=sent;
+            }
+            checkStatus(){
+                if(this.status){
+                    alert("Điện thoại đang bật")
+                    return true;
+                }
+                else{ 
+                    alert("Điện thoại đang tắt")
+                    return false;}
+            }
+            checkBatery(){
+                if(this.battery>0&&this.battery<100){
+                    return true
+                }
+                else if(this.battery==0){
+                    alert("Hết pin rồi vui lòng sạc");
+                    this.status=false;
+                    return false;
+                }
+            }
+            turnOn(){
+                if(this.checkBatery()){
+                    if(this.status==false){
+                    this.status=true;
+                    alert("Opening......");
+                    }
+                    else{alert("Đã mở sẵn rồi");
+                }
+                }
+            }
+            turnOff(){
+                if(this.checkBatery()){
+                    if(this.status==true){
+                    this.status=false;
+                    alert("Shutting down......");
+                    }
+                    else{alert("Đã tắt sẵn rồi");
+                }
+                }
+            }
+            chargeBatery(){
+                if(this.battery<100){
+                    let energy=parseInt(prompt("Sạc trong bao nhiêu phút: "));
+                    this.battery+=energy;
+                }
+                alert ("Sạc xong pin là: "+ this.battery)
+            }
+            decreaseBatery(){
+                if(this.checkStatus){
+                    if(this.checkBatery){
+                        this.battery--;
+                    }
+                }
+                else{
+                    alert("Điện thoại bị tắt")
+                }
+            }
+            typeMessenger(){
+                if(this.checkStatus){
+                var messenger=prompt("Nhập nội dung tin nhắn");
+                this.decreaseBatery();
+                return messenger;
+                }
+                else{
+                    alert("Điện thoại bị tắt")
+                }
+                
+            }
+            takeMessenger(messenger){
+                if(this.checkStatus){
+                this.inbox.push(messenger);
+                this.decreaseBatery();}
+                else{
+                    alert("Điện thoại bị tắt")
+                }
+                
+            }
+            sendMessenger(messenger){
+                if(this.checkStatus){
+                var flag=confirm("Bạn muốn gửi tin nhắn đi ko? ")
+                if(flag){
+                this.sent.push(messenger);}
+                else{
+                    draft.push(messenger)
+                }
+                this.decreaseBatery();
+            }
+            else{
+                    alert("Điện thoại bị tắt")
+                }
+                
+            }
+            readInbox(){
+                if(this.checkStatus){
+                for(let i=0;i<this.inbox.length;i++){
+                    alert("Hộp thứ đến thứ "+i+ ": "+ this.inbox[i]);
+                }
+                this.decreaseBatery();}
+                else{
+                    alert("Điện thoại bị tắt")
+                }
+            }
+            readSent(){
+                if(this.checkStatus){
+                for(let i=0;i<this.sent.length;i++){
+                    alert("Hộp đã gửi thứ "+i+ ": "+ this.sent[i]);
+                }
+                this.decreaseBatery();}
+                else{
+                    alert("Điện thoại bị tắt")
+                }
+            }
+            readDraft(){
+                if(this.checkStatus){
+                for(let i=0;i<this.draft.length;i++){
+                    alert("Hộp thư nháp thứ "+i+ ": "+ this.draft[i]);
+                }
+                this.decreaseBatery();}
+                else{
+                    alert("Điện thoại bị tắt")
+                }
+            }
+            
+        }
+        
+        var newPhone=new Phone(50,true,[],[],[]);
+        newPhone.checkStatus();
+        newPhone.turnOff();
+        newPhone.turnOn();
+        newPhone.chargeBatery();
+        let sentSSM=newPhone.typeMessenger();
+        newPhone.sendMessenger(sentSSM);
+        let msTemp="abcd";
+        newPhone.takeMessenger(msTemp);
+        newPhone.takeMessenger("tui là tùng");
+        newPhone.readInbox();
+        newPhone.readSent();
+        newPhone.readDraft();
+        alert("Pin còn lại: "+newPhone.battery);
+
+
+    </script>
+</body>
+</html>

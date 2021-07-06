@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <canvas id="myCanvas" style="width: 70%;height: 70%;"></canvas>
     <script>
         class rectangle{
             constructor(length,height){
@@ -38,7 +38,9 @@
                 ctx.fillRect(0,0,this.getHeight(),this.getLength())
             }
         }
-        var newRectangle= new rectangle(40,50);
+        var length=parseInt(prompt("Nhập chiều dài hình chữ nhật"));
+        var height=parseInt(prompt("Nhập chiều cao hình chữ nhật"));
+        var newRectangle= new rectangle(length,height);
         alert ("Thông tin hình chữ nhật: \n dài: "+newRectangle.length+"\n rộng : "+ newRectangle.height)
         alert("Chu vi hình chữ nhật:"+newRectangle.getPerimeter()+"\n Diện tích hình chữ nhật:"+newRectangle.getArea())
         newRectangle.drawCanvas();

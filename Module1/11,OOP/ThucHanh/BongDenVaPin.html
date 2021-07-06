@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Battery{
+            constructor(energy){
+                this.energy=energy;
+            }
+            haveEnergy(){
+                if(this.energy<=0){
+                    return false;
+                }
+                else{ return true;}
+            }
+            decreaseEnergy(){
+                if(this.haveEnergy()){
+                    this.energy-=1;
+                }
+                else{alert("Het Pin")};
+            }
+        }
+        class FlashLamp{
+            constructor(Battery,status){
+                this.Battery=Battery;
+                this.status=status;
+            }
+            turnOn(){
+                if(this.Battery.haveEnergy){
+                    this.status=true;
+                }
+                    this.Battery.decreaseEnergy();
+                
+            }
+            turnOff(){
+                this.status=false;
+            }
+            getStatus(){
+                if(this.status){
+                    alert("Đèn đã bật");
+                }
+                else{
+                    alert("Đèn đã tắt");
+                }
+            }
+            getBateryInfo(){
+                alert("Pin còn: "+this.Battery.energy);
+            }
+        }
+        var pin=new Battery(10);
+        var den=new FlashLamp(pin,false);
+        den.getBateryInfo();
+        alert("Bật đèn nè:.....")
+        den.turnOn();
+        den.getStatus();
+        alert("Tắt đèn nè:.....")
+        den.turnOff();
+        den.getStatus();
+        alert(pin.energy);
+
+    </script>
+</body>
+</html>

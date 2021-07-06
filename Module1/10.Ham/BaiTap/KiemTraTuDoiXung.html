@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input"><br><br>
+    <button onclick="isPalindrome(document.getElementById('input').value)">Kiem tra doi xung</button><br><br>
+    <br>
+    <b id="result"></b>
+    <script>
+        function isPalindrome(strings){
+        var flag=true;
+        var last=strings.length-1;
+        if(strings.length<=1){
+            alert("Chuoi khong the doi xung")
+        }
+        else{
+            for(let i=0;i<(strings.length)/2;i++){
+                    if(strings[i]!=strings[last]){
+                        flag=false;
+                        break;
+                    }
+                    last--;
+                }
+            }
+        if(flag){
+            document.getElementById("result").innerHTML="Chuỗi đối xứng";
+        }
+        else{
+             document.getElementById("result").innerHTML="Chuỗi không đối xứng";
+        }
+    }
+    </script>
+</body>
+</html>

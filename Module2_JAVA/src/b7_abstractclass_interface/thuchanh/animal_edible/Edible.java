@@ -1,4 +1,5 @@
 package b7_abstractclass_interface.thuchanh.animal_edible;
 
-public class Edible {
+public interface Edible {
+    String howToEat();
 }

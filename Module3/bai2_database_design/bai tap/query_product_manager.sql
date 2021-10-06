@@ -68,7 +68,7 @@ product_code int,
 foreign key(order_code) references the_order (order_code),
 foreign key(product_code) references product (product_code),
 unique (product_code,order_code)
-);
+);	
 
 
 

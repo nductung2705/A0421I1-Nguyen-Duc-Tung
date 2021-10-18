@@ -30,15 +30,22 @@ insert into order_detail (order_id,product_id,product_quantity) values(2,5,4);
 insert into order_detail (order_id,product_id,product_quantity) values(2,3,3);
 
 -- Hiển thị các thông tin  gồm oID, oDate, oPrice của tất cả các hóa đơn trong bảng Order
-select `order`.order_id,`order`.order_date,pro.product_price from `order` left join order_detail ord on `order`.order_id=ord.order_id inner join product pro on ord.product_id=pro.product_id;
+select `order`.order_id,`order`.order_date,pro.product_price from `order` 
+left join order_detail ord on `order`.order_id=ord.order_id 
+inner join product pro on ord.product_id=pro.product_id;
 -- Hiển thị danh sách các khách hàng đã mua hàng, và danh sách sản phẩm được mua bởi các khách
-select cs.customer_name,pro.product_name from `order` inner join customer cs on `order`.customer_id=cs.customer_id inner join order_detail ordt on `order`.order_id=ordt.order_id left join product pro on ordt.product_id=pro.product_id
+select cs.customer_name,pro.product_name from `order`
+inner join customer cs on `order`.customer_id=cs.customer_id 
+inner join order_detail ordt on `order`.order_id=ordt.order_id 
+left join product pro on ordt.product_id=pro.product_id
 group by cs.customer_name,pro.product_name
 order by cs.customer_name;
 -- Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào
 select customer_name from customer where customer_id not in(select customer_id from `order`);
 -- Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn. Giá bán của từng loại được tính = odQTY*pPrice)
-select `order`.order_id,`order`.order_date,sum(pro.product_price*ord.product_quantity) as Total_bill from `order` left join order_detail ord on `order`.order_id=ord.order_id inner join product pro on ord.product_id=pro.product_id
+select `order`.order_id,`order`.order_date,sum(pro.product_price*ord.product_quantity) as Total_bill from `order` 
+left join order_detail ord on `order`.order_id=ord.order_id 
+inner join product pro on ord.product_id=pro.product_id
 group by `order`.order_id
 order by `order`.order_date;
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var n = 4;
+        var count = 0;
+        var i=2;
+        while (count<n){
+            var isPrime = true;
+            for(var j=2; j<=Math.sqrt(i); j++){
+                if(i%j===0){
+                    isPrime=false;
+                    break;
+                }
+            }
+            if(isPrime){
+                count++;
+                document.write("so nguyen to thu "+count+" la: " + i+"<br>");
+            }
+            i++;
+        }
+    </script>
+</body>
+</html>
